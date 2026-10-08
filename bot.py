@@ -5,10 +5,13 @@ import json
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 TOKEN = os.environ["BOT_TOKEN"]
+RENDER_URL = "https://gptbot84.onrender.com"
+
 
 def telegram(method, data):
     url = f"https://api.telegram.org/bot{TOKEN}/{method}"
     encoded = urllib.parse.urlencode(data).encode()
+
     with urllib.request.urlopen(url, data=encoded) as response:
         return json.loads(response.read())
 
