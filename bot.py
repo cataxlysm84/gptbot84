@@ -53,6 +53,11 @@ port = int(os.environ.get("PORT", 10000))
 
 server = HTTPServer(("0.0.0.0", port), Handler)
 
+telegram("setWebhook", {
+    "url": "https://gptbot84.onrender.com"
+})
+
+print("Webhook установлен")
 print("Рядовой ЖПТ запущен")
 
 server.serve_forever()
